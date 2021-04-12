@@ -19,7 +19,7 @@ export default class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <h1>SuiSuiSuisuDraw/beta</h1>
+                <h1>SuiSui-SuisuDraw/beta</h1>
                 <p>スイスドローの人数をざっくり計算します。</p>
                 <p>作ったのは<a href="https://twitter.com/Rue1DM">この人</a>。</p>
 
