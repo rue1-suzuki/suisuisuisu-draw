@@ -4,13 +4,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(100vmin/32);
   color: white;
   text-align: center;
 }
 
+h1 {
+  font-size: calc(100vmin/16);
+}
+
 select {
-  font-size: calc(10px + 2vmin);
+  font-size: calc(100vmin/32);
 }
 
 a {
