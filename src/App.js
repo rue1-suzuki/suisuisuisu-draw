@@ -5,61 +5,45 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            "players": {
-                "max": 256,
-                "current": 32
-            },
-            "rounds": {
-                "max": 8,
-                "current": 5
-            },
+            "players": { "max": 256, "current": 32 },
+            "rounds": { "max": 8, "current": 5 }
         };
     }
 
     render() {
         return (
             <React.Fragment>
-                <h1>すいすいスイスドロー/beta</h1>
-                <p>スイスドローの人数をざっくり計算します。</p>
-                <p>作ったのは<a href="https://twitter.com/Rue1DM">この人</a>。</p>
+                <h1>すいすいスイスドロー</h1>
 
-                <h2>回戦数</h2>
-                <form>
-                    <select id="select_rounds" defaultValue={this.state.rounds["current"]} onChange={this.selected}>
-                        {this.round_select(this.state.rounds["max"])}
-                    </select>
-                </form>
-
-                <h2>参加者数</h2>
-                <form>
-                    <select id="select_players" defaultValue={this.state.players["current"]} onChange={this.selected}>
-                        {this.players_select(this.state.players["max"])}
-                    </select>
-                </form>
+                <h2>対戦設定</h2>
+                {this.round_select(this.state.rounds["max"])}
+                {this.players_select(this.state.players["max"])}
 
                 <h2>対戦結果</h2>
                 {this.calc(this.state.rounds["current"], this.state.players["current"])}
+
+                <p>作者：<a href="https://twitter.com/Rue1DM">@Rue1DM</a></p>
             </React.Fragment >
         );
     }
 
     round_select(rounds_max) {
         return (
-            <React.Fragment>{
+            <select id="select_rounds" defaultValue={this.state.rounds["current"]} onChange={this.selected}>{
                 Array(rounds_max).fill().map((dummy, i) => {
                     return (<option key={i + 1} value={i + 1}>{i + 1}回戦</option>);
                 })
-            }</React.Fragment>
+            }</select>
         );
     }
 
     players_select(players_max) {
         return (
-            <React.Fragment>{
+            <select id="select_players" defaultValue={this.state.players["current"]} onChange={this.selected}>{
                 Array(players_max).fill().map((dummy, i) => {
                     return (<option key={i + 1} value={i + 1}>{i + 1}人</option>);
                 })
-            }</React.Fragment>
+            }</select>
         );
     }
 
