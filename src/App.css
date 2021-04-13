@@ -5,12 +5,14 @@ body {
   align-items: center;
   justify-content: center;
   font-family: "BIZ UDPゴシック";
+  font-size: 124%;
   color: white;
   text-align: center;
 }
 
 select {
   font-family: "BIZ UDPゴシック";
+  font-size: 124%;
 }
 
 a {
