@@ -15,14 +15,14 @@ export default class App extends React.Component {
             <React.Fragment>
                 <h1>すいすいスイスドロー</h1>
 
-                <h2>対戦設定</h2>
+                <h2>設定</h2>
                 {this.round_select(this.state.rounds["max"])}
                 {this.players_select(this.state.players["max"])}
 
-                <h2>対戦結果</h2>
+                <h2>結果</h2>
                 {this.calc(this.state.rounds["current"], this.state.players["current"])}
 
-                <p>作者：<a href="https://twitter.com/Rue1DM">@Rue1DM</a></p>
+                <p>created by <a href="https://twitter.com/Rue1DM">@Rue1DM</a></p>
             </React.Fragment >
         );
     }
@@ -66,7 +66,7 @@ export default class App extends React.Component {
         // 初期化
         for (let i = 0; i <= rounds_num; i++) {
             let round = [];
-            for (let j = 0; j <= rounds_num; j++) {
+            for (let j = 0; j < i + 1; j++) {
                 round.push(0);
             }
             rounds.push(round);
@@ -75,7 +75,7 @@ export default class App extends React.Component {
         // 計算
         rounds[0][0] = players_num;
         for (let i = 0; i < rounds.length - 1; i++) {
-            for (let j = 0; j < rounds[i].length - 1; j++) {
+            for (let j = 0; j < rounds[i].length; j++) {
                 rounds[i + 1][j] += Math.ceil(rounds[i][j] / 2);        // 勝ち
                 rounds[i + 1][j + 1] += Math.floor(rounds[i][j] / 2);   // 負け
             }
@@ -90,12 +90,7 @@ export default class App extends React.Component {
                     return (
                         <p key={p_key++}> {
                             round.map((cell) => {
-                                if (cell !== 0) {
-                                    return (<nobr key={nobr_key++}>&nbsp;{cell}&nbsp;</nobr>);
-                                }
-                                else {
-                                    return null;
-                                }
+                                return (<nobr key={nobr_key++}>&nbsp;{cell}&nbsp;</nobr>);
                             })
                         }</p>
                     );
