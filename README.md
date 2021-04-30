@@ -2,7 +2,7 @@
 
 スイスドローの人数をざっくり計算します。
 
-作ったのは[この人](https://twitter.com/Rue1DM")。
+作ったのは[この人](https://twitter.com/Rue1DM)。
 
 ## 使い方
 
