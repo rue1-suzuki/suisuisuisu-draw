@@ -6,10 +6,13 @@ export default function SelectNumber(props) {
             <h2>{props.title}</h2>
             <input
                 type="number"
-                className="form-control"
+                className="form-control text-center"
                 defaultValue={props.num}
+                min={0}
+                step={1}
                 onChange={(event) => {
-                    props.setNum(parseInt(event.target.value))
+                    const number = parseInt(event.target.value)
+                    props.setNum(number)
                 }}
             />
         </React.Fragment>
